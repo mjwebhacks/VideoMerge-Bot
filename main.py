@@ -56,9 +56,9 @@ async def start_handler(bot: Client, m: Message):
         quote=True,
         reply_markup=InlineKeyboardMarkup(
             [
-                [InlineKeyboardButton("Developer - @AbirHasan2005", url="https://t.me/AbirHasan2005")],
-                [InlineKeyboardButton("Support Group", url="https://t.me/linux_repo"),
-                 InlineKeyboardButton("Bots Channel", url="https://t.me/Discovery_Updates")],
+                [InlineKeyboardButton("Developer - @ManyaDon007", url="https://t.me/ManyaDon007")],
+                [InlineKeyboardButton("Support Group", url="https://t.me/mjwebhack"),
+                 InlineKeyboardButton("Bots Channel", url="https://t.me/mjfileupload")],
                 [InlineKeyboardButton("Open Settings", callback_data="openSettings")],
                 [InlineKeyboardButton("Close", callback_data="closeMeh")]
             ]
@@ -86,7 +86,7 @@ async def videos_handler(bot: Client, m: Message):
         return
     input_ = f"{Config.DOWN_PATH}/{m.from_user.id}/input.txt"
     if os.path.exists(input_):
-        await m.reply_text("Sorry Unkil,\nAlready One in Progress!\nDon't Spam Plox.")
+        await m.reply_text("Sorry Sir,\nAlready One in Progress!\nDon't Spam Plox.")
         return
     isInGap, sleepTime = await CheckTimeGap(m.from_user.id)
     if isInGap is True:
@@ -104,7 +104,7 @@ async def videos_handler(bot: Client, m: Message):
                 FormtDB.update({m.from_user.id: media.file_name.rsplit(".", 1)[-1].lower()})
             await asyncio.sleep(Config.TIME_GAP)
             if len(QueueDB.get(m.from_user.id)) == Config.MAX_VIDEOS:
-                MessageText = "Okay Unkil, Now Just Press **Merge Now** Button Plox!"
+                MessageText = "Okay Sir, Now Just Press **Merge Now** Button Plox!"
             markup = await MakeButtons(bot, m, QueueDB)
             await editable.edit(text="Your Video Added to Queue!")
             reply_ = await m.reply_text(
@@ -116,7 +116,7 @@ async def videos_handler(bot: Client, m: Message):
         elif len(QueueDB.get(m.from_user.id)) > Config.MAX_VIDEOS:
             markup = await MakeButtons(bot, m, QueueDB)
             await editable.edit(
-                text=f"Sorry Unkil,\nMax {str(Config.MAX_VIDEOS)} Videos Allowed to Merge Together!\nPress **Merge Now** Button Now!",
+                text=f"Sorry Sir,\nMax {str(Config.MAX_VIDEOS)} Videos Allowed to Merge Together!\nPress **Merge Now** Button Now!",
                 reply_markup=InlineKeyboardMarkup(markup)
             )
 
@@ -316,7 +316,7 @@ async def callback_handlers(bot: Client, cb: CallbackQuery):
                 )
             )
         except FloodWait as e:
-            await cb.answer("Don't Spam Unkil!", show_alert=True)
+            await cb.answer("Don't Spam Sir!", show_alert=True)
             await asyncio.sleep(e.x)
         except:
             media = message_.video or message_.document
@@ -327,7 +327,7 @@ async def callback_handlers(bot: Client, cb: CallbackQuery):
                 user = await bot.get_chat_member(chat_id=(int(Config.UPDATES_CHANNEL) if Config.UPDATES_CHANNEL.startswith("-100") else Config.UPDATES_CHANNEL), user_id=cb.message.chat.id)
                 if user.status == "kicked":
                     await cb.message.edit(
-                        text="Sorry Sir, You are Banned to use me. Contact my [Support Group](https://t.me/linux_repo).",
+                        text="Sorry Sir, You are Banned to use me. Contact my [Support Group](https://t.me/mjwebhack).",
                         parse_mode="markdown",
                         disable_web_page_preview=True
                     )
@@ -355,7 +355,7 @@ async def callback_handlers(bot: Client, cb: CallbackQuery):
                 return
             except Exception:
                 await cb.message.edit(
-                    text="Something went Wrong. Contact my [Support Group](https://t.me/linux_repo).",
+                    text="Something went Wrong. Contact my [Support Group](https://t.me/mjwebhack).",
                     parse_mode="markdown",
                     disable_web_page_preview=True
                 )
@@ -363,7 +363,7 @@ async def callback_handlers(bot: Client, cb: CallbackQuery):
         await cb.message.edit(
             text=Config.START_TEXT,
             parse_mode="Markdown",
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Developer - @AbirHasan2005", url="https://t.me/AbirHasan2005"), InlineKeyboardButton("Support Group", url="https://t.me/linux_repo")], [InlineKeyboardButton("Bots Channel", url="https://t.me/Discovery_Updates")]]),
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Developer - @ManyaDon007", url="https://t.me/ManyaDon007"), InlineKeyboardButton("Support Group", url="https://t.me/mjwebhack")], [InlineKeyboardButton("Bots Channel", url="https://t.me/mjfileupload")]]),
             disable_web_page_preview=True
         )
     elif "showThumbnail" in cb.data:
@@ -412,7 +412,7 @@ async def callback_handlers(bot: Client, cb: CallbackQuery):
                 )
             )
         else:
-            await cb.answer("Sorry Unkil, Your Queue is Empty!", show_alert=True)
+            await cb.answer("Sorry Sir, Your Queue is Empty!", show_alert=True)
     elif "triggerGenSS" in cb.data:
         generate_ss = await db.get_generate_ss(cb.from_user.id)
         if generate_ss is True:
@@ -433,9 +433,9 @@ async def callback_handlers(bot: Client, cb: CallbackQuery):
         if (QueueDB.get(cb.from_user.id, None) is None) or (QueueDB.get(cb.from_user.id) == []):
             await cb.answer("Sorry Unkil, Your Queue is Empty!", show_alert=True)
             return
-        merged_vid_path = f"{Config.DOWN_PATH}/{str(cb.from_user.id)}/[@AbirHasan2005]_Merged.{FormtDB.get(cb.from_user.id).lower()}"
+        merged_vid_path = f"{Config.DOWN_PATH}/{str(cb.from_user.id)}/[@ManyaDon007]_Merged.{FormtDB.get(cb.from_user.id).lower()}"
         if cb.data.split("_", 1)[-1] == "Yes":
-            await cb.message.edit("Okay Unkil,\nSend me new file name!")
+            await cb.message.edit("Okay Sir,\nSend me new file name!")
             try:
                 ask_: Message = await bot.listen(cb.message.chat.id, timeout=300)
                 if ask_.text:
