@@ -8,7 +8,7 @@ class Config(object):
     API_HASH = "9511d0112631f9990337eb724d1a7d0d"
     BOT_TOKEN = "5288446787:AAGPvKJeD5gPzJfZ_fqx0tvO3-ruaVXxBzI"
     SESSION_NAME = "Video-Merge-Bot"
-    UPDATES_CHANNEL = "-1001771465683"
+    UPDATES_CHANNEL = "-1001234394694"
     LOG_CHANNEL = "-1001771465683"
     DOWN_PATH = "./downloads"
     TIME_GAP = 5
