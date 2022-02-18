@@ -1,4 +1,4 @@
-# (c) @AbirHasan2005
+# (c) @ManyaDon007
 
 import os
 
@@ -9,7 +9,7 @@ class Config(object):
     BOT_TOKEN = "5288446787:AAGPvKJeD5gPzJfZ_fqx0tvO3-ruaVXxBzI"
     SESSION_NAME = "Video-Merge-Bot"
     UPDATES_CHANNEL = "-1001771465683"
-    LOG_CHANNEL = os.environ.get("LOG_CHANNEL")
+    LOG_CHANNEL = "-1001771465683"
     DOWN_PATH = "./downloads"
     TIME_GAP = 5
     MAX_VIDEOS = 10
@@ -19,12 +19,12 @@ class Config(object):
     BROADCAST_AS_COPY = bool(os.environ.get("BROADCAST_AS_COPY", False))
     BOT_OWNER = 1464063686
     START_TEXT = """
-Hi Unkil, I am Video Merge Bot!
+Hi Sir/Madam, I am Video Merge Bot!
 I can Merge Multiple Videos in One Video. Video Formats should be same.
 
-Made by @AbirHasan2005
+Made by @ManyaDon007
 """
-    CAPTION = "Video Merged by @{}\n\nMade by @AbirHasan2005"
+    CAPTION = "Video Merged by @{}\n\nMade by @Manya@007"
     PROGRESS = """
 Percentage : {0}%
 Done: {1}
